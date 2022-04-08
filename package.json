@@ -1,0 +1,23 @@
+{
+  "name": "employee-mngmt-system",
+  "version": "1.0.0",
+  "description": "employee-tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boldsja/employee-mngmt-system.git"
+  },
+  "author": "Jasmine Bolds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boldsja/employee-mngmt-system/issues"
+  },
+  "homepage": "https://github.com/boldsja/employee-mngmt-system#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2",
+    "mysql2": "^2.3.3"
+  }
+}
