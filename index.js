@@ -14,12 +14,18 @@ function mainMenu(){
             type: "list",
             name: "choice",
             message: "What would you like to do?",
-            choices: ["View All Employees", "View Employee by Department", "View All Departments"]
+            choices: ["View All Departments", "View All Roles", "View All Employees", "Add a Department", "Add a Role", "Add an Employee", "Update Employee Role", "Done"]
         }
     ]).then(response => {
         let userChoice = response.choice;
 
         switch(userChoice){
+            case "View All Departments":
+                viewDepartments()
+                break;
+            case "View All Roles":
+                //viewRoles    
+                break;
             case "View All Employees":
                 viewEmployees()
                 break;
@@ -31,7 +37,7 @@ function mainMenu(){
         }
     })
 }
-
+//function to view all Employees
 function viewEmployees(){
     db.findAllEmployees()
     .then(([rows])=> {
@@ -40,4 +46,12 @@ function viewEmployees(){
     })
     .then(()=> mainMenu())
 }
-
+//function to view all departments
+function viewDepartments(){
+    db.findAllDepartments()
+    .then(([rows])=> {
+        let departments = rows;
+        console.table(departments)
+    })
+    .then(()=> mainMenu())
+}
