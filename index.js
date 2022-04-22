@@ -2,6 +2,7 @@ const db = require("./db");
 const { prompt } = require("inquirer");
 const inquirer = require("inquirer");
 
+
 init()
 
 function init() {
@@ -15,7 +16,7 @@ function mainMenu() {
             type: "list",
             name: "choice",
             message: "What would you like to do?",
-            choices: ["View All Departments", "View All Roles", "View All Employees", "Add a Department", "Add a Role", "Add an Employee", "Update Employee Role"]
+            choices: ["View All Departments", "View All Roles", "View All Employees", "Add a Department", "Add a Role", "Add an Employee", "Update Employee Role", "Quit"]
         }
     ]).then(response => {
         let userChoice = response.choice;
@@ -45,7 +46,9 @@ function mainMenu() {
             case "Update Employee Role":
                 updateRole()
                 break;
-            default:
+            case "Quit":
+                process.exit()
+                break;
             //quit();
         }
     })
@@ -214,10 +217,11 @@ function updateRole() {
                                 let role_id = answer.roleID;
 
                                 db.updateEmployeeRole(employeeId, role_id)
+                                mainMenu()
                             })
 
                         })
                 })
         })
-}
-
+    }
+    
